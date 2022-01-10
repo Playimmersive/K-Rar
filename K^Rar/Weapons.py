@@ -13,3 +13,12 @@ sharped_dagger        =               (5,     "sharped dagger")
 
 
 sharped_dagger_found = False
+
+
+
+###               Loot Inventar                  ###
+
+loot_gold = 0
+loot_medics = 0
+loot_meals = 0
+loot_water = 0
