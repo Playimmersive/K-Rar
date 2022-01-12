@@ -16,4 +16,4 @@ bandit2     =       human(  "felzur_city_place_stonebuilding_01",       "Human",
 
 # Animal    =       animal(     location,                                 race,           name,             health,     strenght,       agility,            weapon,       fur,        alive)###
 
-stray_dog_01       =       animal(   "felzur_city_player_home",                 "Dog",           "stray dog",             100,          1,             1,                 dagger,       1,        True)         
+stray_dog_01       =       animal(   "felzur_city_player_home",          "Dog",         "stray dog",          50,          1,             1,                 fangs,       1,        True)         

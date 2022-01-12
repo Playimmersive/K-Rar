@@ -72,7 +72,7 @@ class human:
 
 
   def rest_unsafe(player):
-    slow_print("\n\n" + player1.name + " trys to find a safe place and rests.\n")
+    slow_print("\n\n" + player1.name + " trys to find a safe place and rests a while.\n")
     player_input = (input("\nType 'meal' to take a meal.\nType 'drink' to drink something.\nType 'carry on' to go further.\nType 'medics' to take some medics.\nType 'status' for your status.\nType 'quit' to go back to the start menu.\n\n>"))
     if "meal" in player_input:
       player1.use_meals_unsafe()
@@ -125,7 +125,7 @@ class human:
         credits()
     player1.rest()
 
-### Use Medics
+###                     Use Medics
 
   def use_medics(player):
     if player.health == player.max_health:
@@ -209,10 +209,9 @@ class human:
 
 
   def status(player):
-    slow_print("\n" + player.name + "´s Health is at " + str(player.health) + "/" + str(player.max_health) + " points.\nThere are " + str(player.gold) + " gold pieces and\n"+ str(player.fur) + " furs in his bag.\n")
-    slow_print(player.name + "´s hunger is at " + str(player.hunger) + " points.\n")
-    slow_print(player.name + "´s thirst is at " + str(player.thirst) + " points.\n")
-    slow_print(player.name + "´s strenght is at " + str(player.strenght) + " points.\n")
+    slow_print("\n" + player.name + "'s Health is at " + str(player.health) + "/" + str(player.max_health) + " points.\nThere are " + str(player1.medics) + " herbs in a pouch, " + str(player1.meals) + " meals, " + str(player1.water) + " bottles of water, " + str(player.gold) + " gold pieces and "+ str(player.fur) + " furs in his bag.\n")
+    slow_print(player.name + "'s thirst is at " + str(player.thirst) + " points.\n")
+    slow_print(player.name + "'s strenght is at " + str(player.strenght) + " points.\n")
     slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
     player1.rest()
 
@@ -222,10 +221,10 @@ class human:
 
     
   def status_unsafe(player):
-    slow_print("\n" + player.name + "´s Health is at " + str(player.health) + "/" + str(player.max_health) + " points.\nThere are " + str(player.gold) + " gold pieces and\n"+ str(player.fur) + " furs in his bag.\n")
-    slow_print(player.name + "´s hunger is at " + str(player.hunger) + " points.\n")
-    slow_print(player.name + "´s thirst is at " + str(player.thirst) + " points.\n")
-    slow_print(player.name + "´s strenght is at " + str(player.strenght) + " points.\n")
+    slow_print("\n" + player.name + "'s Health is at " + str(player.health) + "/" + str(player.max_health) + " points.\nThere are " + str(player1.medics) + " herbs in a pouch, " + str(player1.meals) + " meals, " + str(player1.water) + " bottles of water, " + str(player.gold) + " gold pieces and "+ str(player.fur) + " furs in his bag.\n")
+    slow_print(player.name + "'s hunger is at " + str(player.hunger) + " points.\n")
+    slow_print(player.name + "'s thirst is at " + str(player.thirst) + " points.\n")
+    slow_print(player.name + "'s strenght is at " + str(player.strenght) + " points.\n")
     slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
     player1.rest_unsafe()
 

@@ -19,14 +19,17 @@ def this_location():
       print("\n" *50)
       felzur_city_bar()
 
-    elif player1.location == felzur_city_place_shack_01:
+    elif player1.location == felzur_city_plaza_shack_01:
       print("\n" *50)
-      felzur_city_place_shack_01()
-    elif player1.location == felzur_city_place_stonebuilding_01:
+      felzur_city_plaza_shack_01()
+    elif player1.location == felzur_city_plaza_stonebuilding_01:
       print("\n" *50)
-      felzur_city_place_stonbuilding_01()
-    elif player1.location == felzur_city_place_coluseum:
+      felzur_city_plaza_stonbuilding_01()
+    elif player1.location == felzur_city_plaza_coluseum:
       print("\n" *50)
-      felzur_city_place_coluseum()
+      felzur_city_plaza_coluseum()
+    elif player1.location == felzur_city_market:
+      print("\n" *50)
+      felzur_city_market()
     else: print("\n" *50)
-    felzur_city_place()
+    felzur_city_plaza()

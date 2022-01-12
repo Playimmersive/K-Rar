@@ -203,14 +203,14 @@ def combat_animal(attacker, defender):
           after_combat_animal()
 
       elif random.choice(result) == 3:
-        hitpoints = defender.strenght * defender.weapon[0] + 2
+        hitpoints = defender.strenght * attacker.weapon[0] + 2
         defender.health = max(0, defender.health - hitpoints)
-        slow_print("The " + defender.name +  " harmed himself!\n")
+        slow_print("The " + defender.name +  " runs into the "+ player1.weapon[1] + " from " + player1.name + "!\n")
         slow_print("(The " + defender.name + " has " + str(defender.health) + " healthpoints.)\n\n" )
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print("The " + defender.name + " has slained himself!\n\n")
+          slow_print("The " + defender.name + " is slained!\n\n")
           after_combat_animal()
     
       elif random.choice(result) == 4:
@@ -238,6 +238,7 @@ def after_combat():
     player1.water = player1.water + loot_water
     player1.fur = player1.fur + loot_fur
     print(player1.name + " won this battle.\n" + player1.name + " collected  " + str(loot_medics) + " herbs, " + str(loot_meals) + " meals, " + str(loot_water) + " bottles of water and " + str(loot_gold) + " pieces of gold, now are " + str(player1.gold) + " pieces of gold in " + player1.name + "'s bag.")
+    input("Press 'Return'\n>")
     this_location()
 
 
@@ -259,7 +260,8 @@ def after_combat():
 def after_combat_animal():
   if player1.alive == True:
     player1.fur = player1.fur + loot_fur_animal
-    print(player1.name + " won this battle.\n" + player1.name + " collected  " + str(loot_fur_animal) + "pieces of usable fur.\n" + "Now are " + str(player1.fur) + " pieces of fur in " + player1.name + "'s bag.")
+    print(player1.name + " won this battle.\n" + player1.name + " collected  " + str(loot_fur_animal) + " pieces of usable fur.\n" + "Now are " + str(player1.fur) + " pieces of fur in " + player1.name + "'s bag.")
+    input("Press 'Return'\n>")
     this_location()
 
 
