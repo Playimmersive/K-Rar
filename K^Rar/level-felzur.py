@@ -52,11 +52,17 @@ def felzur_city_alley():
 def felzur_city_player_home():
   player1.location = felzur_city_player_home
   slow_print("\nThere is a bed with a little cupboard and a fireplace with some cooking stuff inside your room.\n")
-  player_input = (input("\n\nType 'rest' to rest a while.\nType 'leave' to leave your home.\n\n>"))
+  player_input = (input("\n\nType 'rest' to rest a while.\nType 'leave' to leave your home.\nType 'test' to combat.\n\n>"))
   if "rest" in player_input:
     player1.rest()
   elif "leave" in player_input:
     felzur_city_alley()
+  elif "test" in player_input:
+      global set_attacker
+      set_attacker = player1
+      global set_defender
+      set_defender = bandit1
+      chose_combat_short()
   else:slow_print("Can't handle your input!")
   this_location() 
 
@@ -114,7 +120,12 @@ def felzur_city_plaza():
     felzur_city_plaza_shack_01()
   elif "pet" in player_input:
     slow_print("The stray dog bites " + player1.name + "!\n\n")
-    combat_animal(player1, stray_dog_01)
+    player1.health = player1.health - 4
+    global set_attacker
+    set_attacker = player1
+    global set_defender
+    set_defender = stray_dog_01
+    chose_combat_animal()
   elif "stonebuilding" in player_input:
     felzur_city_plaza_stonebuilding_01()
   elif "coluseum" in player_input:
@@ -180,11 +191,17 @@ def felzur_city_plaza_shack_01():
     if "ignore" in player_input:
       player1.health = player1.health - 10
       slow_print(player1.name + " ignores the shack owner.\nThe small man shows a " + str.lower(bandit1.weapon[1]) + " and starts a attack\n\n" + player1.name + " gets a cut for 10 ponits!\n\n")
-      combat(player1, bandit1)
+
+      global set_attacker
+      set_attacker = player1
+      global set_defender
+      set_defender = bandit1
+
+      chose_combat_short()
 
 
     elif "leave" in player_input:
-      slow_print(player1.name + " leaves the Arena.\n")
+      slow_print(player1.name + " leaves the shabby shack.\n")
       felzur_city_plaza()
 
 
@@ -236,23 +253,46 @@ def felzur_city_plaza_shack_01():
 
 def felzur_city_plaza_stonebuilding_01():
   player1.location = felzur_city_plaza_stonebuilding_01 
-  slow_print("\nWelcome to " + bandit2.name  + "´s arena, everywhere is blood and some bones are on the floor!\n")
-  player_input = (input("Press 'fight' for next combat.\nPress 'leave' to leave.\n>"))
-  if bandit2.health > 0:
-    if "fight" in player_input:
-      print("There is a huge bandit in front of " + player1.name + "!\n")
-      combat(player1, bandit2)
+  slow_print("\n" + player1.name + " enters the building.\nThe owner exhorts to leave his house.\n")
+  player_input = (input("Type 'ignore' to walk into the building.\nType 'talk' to start a conversation.\nType 'plaza' to leave his house.\n>"))
+  if bandit2.alive == False:
+    slow_print(bandit2.name + " is still dead!\n" + player1.name + " leaves the stonebuilding!\n")
+    felzur_city_plaza()
 
+  else:
+    if "ignore" in player_input:
+      slow_print("The merchanary attacks " + player1.name + "!\n")
+      
+      global set_attacker
+      set_attacker = player1
+      global set_defender
+      set_defender = bandit2
 
-    elif "leave" in player_input:
-      print(player1.name + " leaves the stonebuilding.")
+      chose_combat_long()
+
+    elif "talk" in player_input:
+      slow_print("\nWhat do you want from me " + player1.name + ".\nThis is no place for bums like you, fuck off back where you came from.\n\n")
+      player_input = (input("Type 'city' to ask him about Felzur.\nType 'job' to ask him about his profession.\nType 'thats all' to end the conversation.\n>"))
+      if "city" in player_input:
+        slow_print("\nThis city is a poor prison, thats all I can say to you " + player1.name + "!\nI think its time for you to leave.\n")
+        input("\n>")
+        this_location()
+      if "profession" in player_input:
+        slow_print("\nMy name is " + bandit2.name + " and I am a merchanary from Gundar Grelaf's army.\nYou should go now.\n\n")
+        input("\n>")
+        this_location()
+      if "thats all" in player_input:
+        slow_print("\n" + player1.name + " ends the conversation.\n\n")
+        input("\n>")
+        this_location()
+    elif "plaza" in player_input:
+      slow_print(player1.name + " leaves the stonebuilding.\n\n")
       felzur_city_plaza()
 
-    else:print("Can't handle your input!\n>")
+    else:slow_print("Can't handle your input!\n>")
     this_location() 
 
-  else:print(bandit2.name + " is still dead!\n" + player1.name + " leaves the Arena!\n")
-  felzur_city_plaza()
+
 
 ###                           arena_city_plaza_coluseum                            ###
 

@@ -1,14 +1,14 @@
 
 def start_menu():
   slow_print("\n###              This is a Playimmersive production.          ###\n\n\n\n###               Welcome to the world of K^Rar.              ###\n###               A world on the edge of the end!             ###\n\nAre you sure you want to enter this place?\n")
-  player1.health = 78
+  player1.health = 300
   player1.hunger = 51
   player1.thirst = 43
   player1.strenght = 1
-  player1.agility = 1
-  player1.weapon = dagger
-  player1.max_health = 100
-  player1.gold = 150
+  player1.agility = 3
+  player1.weapon = sword
+  player1.max_health = 300
+  player1.gold = 10
   player1.medics = 1
   player1.meals = 1
   player1.water = 1
