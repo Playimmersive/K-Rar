@@ -33,7 +33,7 @@ def chose_combat_short():
     combat_short_weapon_d(attacker, defender)
 
 
-###                      chose_combat_short
+###                      chose_combat_animal
 def chose_combat_animal():
   global set_attacker
   global set_defender
@@ -80,21 +80,21 @@ def combat(attacker, defender):
         hitpoints = attacker.strenght * attacker.weapon[0]
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was a good strike.\n" + attacker.name + " hit's his enemy with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
         if defender.health <= 0:
           defender.alive = False
-          print(defender.name + " has been slained!\n")
+          print(defender.name + " has been slained!n------------------------------------\n\n")
           after_combat()
 
       elif random.choice(result) == 2:
         hitpoints = attacker.strenght * attacker.weapon[0] + attacker.weapon[0]
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was intense, you could hear some bones breaking!\n"+ attacker.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print(defender.name + " has been slained!\n")
+          slow_print(defender.name + " has been slained!n------------------------------------\n\n")
           after_combat()
 
       elif random.choice(result) == 3:
@@ -110,15 +110,15 @@ def combat(attacker, defender):
       elif random.choice(result) == 4:
         hitpoints = attacker.strenght * attacker.weapon[0] / 2
         defender.health = max(0, defender.health - hitpoints)
-        slow_print(defender.name + " is only slightly injured!")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("It was just a light hit, " + defender.name + " is only slightly injured!")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
           slow_print("It was still not enough to escape the death blow " + defender.name + " where slained!\n\n")
           after_combat()
 
-      else: slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n")
+      else: slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n------------------------------------\n\n")
 
 
 
@@ -127,8 +127,8 @@ def combat(attacker, defender):
     if random.choice(result) == 1:
       hitpoints = defender.strenght * defender.weapon[0]
       attacker.health = max(0, attacker.health - hitpoints)
-      slow_print(defender.name + " swings his " +  str.lower(defender.weapon[1]) + " and hits the opponent with " + str(hitpoints) + " hitpoints!\n\n")
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print(defender.name + " swings his " +  str.lower(defender.weapon[1]) + " and hits the opponent with " + str(hitpoints) + " hitpoints!")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
@@ -138,7 +138,7 @@ def combat(attacker, defender):
       hitpoints = defender.strenght * defender.weapon[0] + defender.weapon[0]
       attacker.health = max(0, attacker.health - hitpoints)
       slow_print("What a heavy punch.\n"+ defender.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
@@ -148,30 +148,30 @@ def combat(attacker, defender):
       hitpoints = defender.strenght * defender.weapon[0] - 1
       defender.health = max(0, defender.health - hitpoints)
       slow_print("Hard to belive but, " + defender.name +  " harmed himself with " + str(hitpoints) + " hitpoints!")
-      slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
+      slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
 
       if defender.health <= 0:
         defender.alive = False
-        slow_print(defender.name + " has slained himself!\n")
+        slow_print(defender.name + " has slained himself!\n------------------------------------\n\n")
         after_combat()
     
     elif random.choice(result) == 4:
       hitpoints = defender.strenght * defender.weapon[0] / 2
       attacker.health = max(0, attacker.health - hitpoints)
-      slow_print(attacker.name + " could soften the blow a bit!" + attacker.name + " hit his enemy with " + str(hitpoints) + " hitpoints.")
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print(attacker.name + " could soften the blow a bit!\n" + defender.name + " hit his enemy with " + str(hitpoints) + " hitpoints.")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
         after_combat()
 
     
-    else: slow_print("What a luck, " + defender.name + " missed " + attacker.name + ".\n" + defender.name + " stumbles around!\n")
+    else: slow_print("What a luck, " + defender.name + " missed " + attacker.name + ".\n" + defender.name + " stumbles around!\n------------------------------------\n\n")
 
 ###                           Combat Animal                         ###
 
 def combat_animal(attacker, defender):
-
+  
   global loot_fur_animal
 
   loot_fur_animal = defender.fur
@@ -179,40 +179,43 @@ def combat_animal(attacker, defender):
   attacker.thirst = attacker.thirst - 5
   import random
   result = range(0,5)
-  fight = True  
+  fight = True
+  if defender.alive == True:
+    slow_print("The " + defender.name + " attacks " + attacker.name + "!\n\n")
   while fight :
 
     if defender.alive == False:
-      slow_print("The animal is dead.")
+      slow_print("The animal is dead.\n------------------------------------\n\n")
       this_location()
     else:
+
 
       if random.choice(result) == 1:
         hitpoints = attacker.strenght * attacker.weapon[0]
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was a good strike.\n" + attacker.name + " hit's the " + defender.name +" with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
         if defender.health <= 0:
           defender.alive = False
-          print(defender.name + " has been slained!\n")
+          print(defender.name + " has been slained!\n------------------------------------\n\n")
           after_combat_animal()
 
       elif random.choice(result) == 2:
         hitpoints = attacker.strenght * attacker.weapon[0] + attacker.weapon[0]
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was intense, you could hear some bones breaking!\n"+ attacker.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print(defender.name + " has been slained!\n")
+          slow_print(defender.name + " has been slained!\n------------------------------------\n\n")
           after_combat_animal()
 
       elif random.choice(result) == 3:
         hitpoints = attacker.strenght * attacker.weapon[0] - 1
         attacker.health = max(0, attacker.health - hitpoints)
-        slow_print("Oh no, " + attacker.name +  " harmed himself!\nHe needs a moment to regain his composure!" + attacker.name + " hit himself with " + str(hitpoints) + " hitpoints.")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("Oh no, " + attacker.name +  " harmed himself!\nHe needs a moment to regain his composure!\n" + attacker.name + " hit himself with " + str(hitpoints) + " hitpoints.")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -221,16 +224,16 @@ def combat_animal(attacker, defender):
       elif random.choice(result) == 4:
         hitpoints = attacker.strenght * attacker.weapon[0] / 2
         defender.health = max(0, defender.health - hitpoints)
-        ("The " + defender.name + " is only slightly injured!\n" + attacker.name + " hit his enemy with " + str(hitpoints) + " hitpoints.")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("It was just a light hit, the " + defender.name + " is only slightly injured!\n" + attacker.name + " hit his enemy with " + str(hitpoints) + " hitpoints.")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print("It was still not enough to escape the death blow " + defender.name + " where slained!\n")
+          slow_print("It was still not enough to escape the death blow " + defender.name + " where slained!\n------------------------------------\n\n")
           after_combat_animal()
 
       elif random.choice(result) == 0:
-        slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n\n")
+        slow_print("\n\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n------------------------------------\n\n")
 
 
 
@@ -241,7 +244,7 @@ def combat_animal(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0]
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("The " + defender.name + " hits his opponent with his " +  str.lower(defender.weapon[1]) + " with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -251,7 +254,7 @@ def combat_animal(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0] + defender.weapon[0]
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("That was horrorble.\nThe "+ defender.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -261,18 +264,18 @@ def combat_animal(attacker, defender):
         hitpoints = defender.strenght * attacker.weapon[0] + attacker.strenght
         defender.health = max(0, defender.health - hitpoints)
         slow_print("The " + defender.name +  " runs into the "+ player1.weapon[1] + " from " + player1.name + "!")
-        slow_print("\n(The " + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
+        slow_print("\n\n(The " + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print("The " + defender.name + " is slained!\n\n")
+          slow_print("The " + defender.name + " is slained!\n------------------------------------\n\n")
           after_combat_animal()
     
       elif random.choice(result) == 4:
         hitpoints = defender.strenght * defender.weapon[0] / 2
         attacker.health = max(0, attacker.health - hitpoints)
-        slow_print(attacker.name + " is only slightly injured!")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("It was just a light hit, " + attacker.name + " is only slightly injured!")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -288,7 +291,7 @@ def combat_animal(attacker, defender):
 
 
 def combat_animal_short(attacker, defender):
-  print("short")
+  
   global loot_fur_animal
 
   loot_fur_animal = defender.fur
@@ -296,13 +299,16 @@ def combat_animal_short(attacker, defender):
   attacker.thirst = attacker.thirst - 5
   import random
   result = range(0,5)
-  fight = True  
+  fight = True
+  if defender.alive == True:
+    slow_print("The " + defender.name + " attacks " + attacker.name + "!\n\n")
   while fight :
 
     if defender.alive == False:
       slow_print("Your opponend is dead.")
       this_location()
     else:
+      
 
       i = 0
     while i < attacker.agility:
@@ -312,28 +318,28 @@ def combat_animal_short(attacker, defender):
           hitpoints = attacker.strenght * attacker.weapon[0]
           defender.health = max(0, defender.health - hitpoints)
           slow_print("That was a good strike.\n" + attacker.name + " hit's the " + defender.name + " with " + str(hitpoints) + (" hitpoints."))
-          slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+          slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
           if defender.health <= 0:
             defender.alive = False
-            print(defender.name + " has been slained!\n")
+            print(defender.name + " has been slained!n------------------------------------\n\n")
             after_combat_animal()
 
       elif random.choice(result) == 2:
         hitpoints = attacker.strenght * attacker.weapon[0] + attacker.weapon[0]
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was intense, you could hear some bones breaking!\n"+ attacker.name + " hit his enemy with  " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print(defender.name + " has been slained!\n")
+          slow_print(defender.name + " has been slained!n------------------------------------\n\n")
           after_combat_animal()
 
       elif random.choice(result) == 3:
         hitpoints =  attacker.strenght * attacker.weapon[0] - 1
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("Oh no, " + attacker.name +  " harmed himself!\nHe needs a moment to regain his composure!")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -342,12 +348,12 @@ def combat_animal_short(attacker, defender):
       elif random.choice(result) == 4:
         hitpoints = attacker.strenght * attacker.weapon[0] + 2
         defender.health = max(0, defender.health - hitpoints / 2)
-        slow_print("The " + defender.name + " is only slightly injured!")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("It was just a light hit, the " + defender.name + " is only slightly injured!")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print("It was still not enough to escape the death blow " + defender.name + " where slained!\n\n")
+          slow_print("It was still not enough to escape the death blow " + defender.name + " where slained!n------------------------------------\n\n")
           after_combat_animal()
 
       else: slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n------------------------------------\n")
@@ -370,7 +376,7 @@ def combat_animal_short(attacker, defender):
       hitpoints = defender.strenght * defender.weapon[0] + defender.weapon[0]
       attacker.health = max(0, attacker.health - hitpoints)
       slow_print("That was horrobile.\n" + defender.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
@@ -380,18 +386,18 @@ def combat_animal_short(attacker, defender):
       hitpoints = defender.strenght * attacker.weapon[0] + attacker.strenght
       defender.health = max(0, defender.health - hitpoints)
       slow_print("The " + defender.name +  " runs into the "+ player1.weapon[1] + " from " + player1.name + "!")
-      slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
+      slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
 
       if defender.health <= 0:
         defender.alive = False
-        slow_print(defender.name + " has slained himself!\n")
+        slow_print(defender.name + " has slained himself!n------------------------------------\n\n")
         after_combat_animal()
     
     elif random.choice(result) == 4:
       hitpoints = defender.strenght * defender.weapon[0] + 2
       attacker.health = max(0, attacker.health - hitpoints / 2)
-      slow_print(attacker.name + " is only slightly injured!" + attacker.name + " where harmed by "+ str(hitpoints) +" hitpoints.")
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print("It was just a light hit, " + attacker.name + " is only slightly injured!" + attacker.name + " where harmed by "+ str(hitpoints) +" hitpoints.")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
@@ -436,28 +442,28 @@ def combat_short_weapon(attacker, defender):
           hitpoints = attacker.strenght * attacker.weapon[0]
           defender.health = max(0, defender.health - hitpoints)
           slow_print("That was a good strike.\n" + attacker.name + " hit's his enemy with " +str(hitpoints) + (" hitpoints."))
-          slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+          slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
           if defender.health <= 0:
             defender.alive = False
-            print(defender.name + " has been slained!\n")
+            print(defender.name + " has been slained!n------------------------------------\n\n")
             after_combat()
 
       elif random.choice(result) == 2:
         hitpoints = attacker.strenght * attacker.weapon[0] + attacker.strenght
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was intense, you could hear some bones breaking!\n"+ attacker.name + " hit his enemy with  " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print(defender.name + " has been slained!\n")
+          slow_print(defender.name + " has been slained!n------------------------------------\n\n")
           after_combat()
 
       elif random.choice(result) == 3:
         hitpoints =  attacker.strenght * attacker.weapon[0] + (attacker.strenght / 2)
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("Oh no, " + attacker.name +  " harmed himself with" + str(hitpoints) + " hitpoints!\nHe needs a moment to regain his composure!")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -467,7 +473,7 @@ def combat_short_weapon(attacker, defender):
         hitpoints = attacker.strenght * attacker.weapon[0] + 2
         defender.health = max(0, defender.health - hitpoints / 2)
         slow_print(defender.name + " could soften the blow a bit!\n")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
@@ -484,7 +490,7 @@ def combat_short_weapon(attacker, defender):
       hitpoints = defender.strenght * defender.weapon[0]
       attacker.health = max(0, attacker.health - hitpoints)
       slow_print(defender.name + " swings his " +  str.lower(defender.weapon[1]) + " and hits the opponent with " + str(hitpoints) + (" hitpoints."))
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
@@ -494,7 +500,7 @@ def combat_short_weapon(attacker, defender):
       hitpoints = defender.strenght * defender.weapon[0] + 10
       attacker.health = max(0, attacker.health - hitpoints)
       slow_print("What a heavy punch.\n"+ defender.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
@@ -504,18 +510,18 @@ def combat_short_weapon(attacker, defender):
       hitpoints = defender.strenght * defender.weapon[0] + 2
       defender.health = max(0, defender.health - hitpoints)
       slow_print("Hard to belive but, " + defender.name +  " harmed himself!")
-      slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
+      slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
 
       if defender.health <= 0:
         defender.alive = False
-        slow_print(defender.name + " has slained himself!\n")
+        slow_print(defender.name + " has slained himself!n------------------------------------\n\n")
         after_combat()
     
     elif random.choice(result) == 4:
       hitpoints = defender.strenght * defender.weapon[0] + 2
       attacker.health = max(0, attacker.health - hitpoints / 2)
       slow_print(attacker.name + " could soften the blow a bit!" + attacker.name + " where harmed by "+ str(hitpoints) +" hitpoints.")
-      slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+      slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
       if attacker.health <= 0:
         attacker.alive = False
@@ -558,28 +564,28 @@ def combat_short_weapon_ad(attacker, defender):
           hitpoints = attacker.strenght * attacker.weapon[0]
           defender.health = max(0, defender.health - hitpoints)
           slow_print("That was a good strike.\n" + attacker.name + " hit's his enemy with " +str(hitpoints) + (" hitpoints."))
-          slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+          slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
           if defender.health <= 0:
             defender.alive = False
-            print(defender.name + " has been slained!\n")
+            print(defender.name + " has been slained!n------------------------------------\n\n")
             after_combat()
 
       elif random.choice(result) == 2:
         hitpoints = attacker.strenght * attacker.weapon[0] + attacker.strenght
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was intense, you could hear some bones breaking!\n"+ attacker.name + " hit his enemy with  " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print(defender.name + " has been slained!\n")
+          slow_print(defender.name + " has been slained!n------------------------------------\n\n")
           after_combat()
 
       elif random.choice(result) == 3:
         hitpoints =  attacker.strenght * attacker.weapon[0] + (attacker.strenght / 2)
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("Oh no, " + attacker.name +  " harmed himself!\nHe needs a moment to regain his composure!")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -589,14 +595,14 @@ def combat_short_weapon_ad(attacker, defender):
         hitpoints = attacker.strenght * attacker.weapon[0] + 2
         defender.health = max(0, defender.health - hitpoints / 2)
         slow_print(defender.name + " could soften the blow a bit!")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
           slow_print("It was still not enough to escape the death blow " + defender.name + " where slained!\n------------------------------------\n\n")
           after_combat()
 
-      else: slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n")
+      else: slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!n------------------------------------\n\n")
 
 
 
@@ -608,7 +614,7 @@ def combat_short_weapon_ad(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0]
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print(defender.name + " swings his " +  str.lower(defender.weapon[1]) + " and hits the opponent with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -618,7 +624,7 @@ def combat_short_weapon_ad(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0] + 10
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("What a heavy punch.\n"+ defender.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -628,18 +634,18 @@ def combat_short_weapon_ad(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0] + 2
         defender.health = max(0, defender.health - hitpoints)
         slow_print("Hard to belive but, " + defender.name +  " harmed himself!")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print(defender.name + " has slained himself!\n")
+          slow_print(defender.name + " has slained himself!n------------------------------------\n\n")
           after_combat()
     
       elif random.choice(result) == 4:
         hitpoints = defender.strenght * defender.weapon[0] + 2
         attacker.health = max(0, attacker.health - hitpoints / 2)
-        slow_print(attacker.name + " is only slightly injured!")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("It was just a light hit, " + attacker.name + " is only slightly injured!")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -680,28 +686,28 @@ def combat_short_weapon_d(attacker, defender):
           hitpoints = attacker.strenght * attacker.weapon[0]
           defender.health = max(0, defender.health - hitpoints)
           slow_print("That was a good strike.\n" + attacker.name + " hit's his enemy with " +str(hitpoints) + (" hitpoints."))
-          slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+          slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
           if defender.health <= 0:
             defender.alive = False
-            print(defender.name + " has been slained!\n")
+            print(defender.name + " has been slained!n------------------------------------\n\n")
             after_combat()
 
       elif random.choice(result) == 2:
         hitpoints = attacker.strenght * attacker.weapon[0] + attacker.strenght
         defender.health = max(0, defender.health - hitpoints)
         slow_print("That was intense, you could hear some bones breaking!\n"+ attacker.name + " hit his enemy with  " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
-          slow_print(defender.name + " has been slained!\n")
+          slow_print(defender.name + " has been slained!n------------------------------------\n\n")
           after_combat()
 
       elif random.choice(result) == 3:
         hitpoints =  attacker.strenght * attacker.weapon[0] + (attacker.strenght / 2)
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("Oh no, " + attacker.name +  " harmed himself!\nHe needs a moment to regain his composure!")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -711,14 +717,14 @@ def combat_short_weapon_d(attacker, defender):
         hitpoints = attacker.strenght * attacker.weapon[0] + 2
         defender.health = max(0, defender.health - hitpoints / 2)
         slow_print(defender.name + " could soften the blow a bit!")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints)\n------------------------------------\n\n")
 
         if defender.health <= 0:
           defender.alive = False
           slow_print("It was still not enough to escape the death blow " + defender.name + " where slained!\n\n")
           after_combat()
 
-      else: slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n------------------------------------\n")
+      else: slow_print("\nOh no, " + attacker.name + " missed.\nHe stumbles around!\n------------------------------------\n\n")
 
 
 
@@ -730,7 +736,7 @@ def combat_short_weapon_d(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0]
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print(defender.name + " swings his " +  str.lower(defender.weapon[1]) + " and hits the opponent with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -740,7 +746,7 @@ def combat_short_weapon_d(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0] + 10
         attacker.health = max(0, attacker.health - hitpoints)
         slow_print("What a heavy punch.\n"+ defender.name + " hit his enemy with " + str(hitpoints) + (" hitpoints."))
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -749,8 +755,8 @@ def combat_short_weapon_d(attacker, defender):
       elif random.choice(result) == 3:
         hitpoints = defender.strenght * defender.weapon[0] + 2
         defender.health = max(0, defender.health - hitpoints)
-        slow_print("Hard to belive but, " + defender.name +  " harmed himself with " + str(hitpoints) + "hitpoints.")
-        slow_print("\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
+        slow_print("Hard to belive but, " + defender.name +  " harmed himself with " + str(hitpoints) + " hitpoints.")
+        slow_print("\n\n(" + defender.name + " has " + str(defender.health) + " healthpoints.)\n------------------------------------\n\n" )
 
         if defender.health <= 0:
           defender.alive = False
@@ -761,7 +767,7 @@ def combat_short_weapon_d(attacker, defender):
         hitpoints = defender.strenght * defender.weapon[0] + 2
         attacker.health = max(0, attacker.health - hitpoints / 2)
         slow_print(attacker.name + " could soften the blow a bit!")
-        slow_print("\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
+        slow_print("\n\n(" + attacker.name + " has " + str(attacker.health) + " healthpoints.)\n------------------------------------\n\n")
 
         if attacker.health <= 0:
           attacker.alive = False
@@ -781,7 +787,6 @@ def after_combat():
     player1.water = player1.water + loot_water
     player1.fur = player1.fur + loot_fur
     print(player1.name + " won this battle.\n" + player1.name + " collected  " + str(loot_medics) + " herbs, " + str(loot_meals) + " meals, " + str(loot_water) + " bottles of water and " + str(loot_gold) + " pieces of gold, now are " + str(player1.gold) + " pieces of gold in " + player1.name + "'s bag.")
-    input("Press 'Return'\n>")
     this_location()
 
 
@@ -794,7 +799,7 @@ def after_combat():
     slow_print(player.name + " died of thirst!")
     player1.alive = False
     credits()
-  print(input("Press enter\n>"))
+  print(input("\n>"))
   credits()
 
     
@@ -804,7 +809,6 @@ def after_combat_animal():
   if player1.alive == True:
     player1.fur = player1.fur + loot_fur_animal
     print(player1.name + " won this battle.\n" + player1.name + " collected  " + str(loot_fur_animal) + " pieces of usable fur.\n" + "Now are " + str(player1.fur) + " pieces of fur in " + player1.name + "'s bag.")
-    input("Press 'Return'\n>")
     this_location()
 
 

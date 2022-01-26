@@ -2,7 +2,7 @@
 ###                   Waffenliste                ###
 
 
-#weapons human      =               (attackpoints,    weapon,   prize)
+#weapons human        =               (attackpoints,    weapon,   prize)
 
 dagger                =               (4,             "dagger",     10)
 log                   =               (8,                "log",     80)    

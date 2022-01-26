@@ -14,26 +14,29 @@ def start_menu():
   player1.water = 1
   player1.alive = True
   player_input = (input("\nPress 'yes' to enter.\nPress 'no' to leave.\n\n>"))
+  
   if "yes" in player_input:
-    print("\n" *50)
+    screen_clear()
     slow_print ("\nYou enter the world of K^Rar!\n")
     player1.location = felzur_city_player_home
     player1.race = "Human"
     slow_print("\nFrom where are you?\n")
-    player_input = input("Type 'felzur' to select Felzur as homecity.\n\n>")
-    if "felzur" in player_input:
-      slow_print("You are from Felzur, it's a cold place sourroundet by mountains.\nIt lies in the south east of K^Rar behind the Felzur Pass.")
+    player_input = input("Type 'Felzur' to select Felzur as homecity.\n\n>")
+    
+    if "Felzur" in player_input:
+      slow_print("You are from Felzur, it's a cold place sourroundet by mountains.\nIt lies in the south east of K^Rar behind the Felzur Pass.\n")
       player1.nativity = "Felzur"
+      
       slow_print("\nWhat's your name?\n")
       player1.name = input(">")
     
       slow_print("\nHow old are you?\n")
       player1.age = input(">")
-
+      screen_clear()
       intro()
       
     else: print("\n---------------\nComming soon!\n---------------\n")
-    slow_print("You are from Felzur, it's a cold place surroundet by mountains.\nIt lies in the south east of K^Rar behind the Felzur Pass.\n")
+    slow_print("You are from Felzur, it's a cold place surroundet by mountains.\nIt lies in the south east of K^Rar behind the Felzur Pass.\n\n")
     player1.nativity = "Felzur"
     
     slow_print("\nWhat's your name?\n")
@@ -41,15 +44,19 @@ def start_menu():
     
     slow_print("\nHow old are you?\n")
     player1.age = input(">")
-    
+    screen_clear()
     intro()
     
     
   elif "no" in player_input:
     slow_print ("\nYou leave this unholy place!\n\n")
+    input("\n>")
+    screen_clear()
     credits()
 
-  else: print("Can't handle your input!\n>")
+  else: print("Can't handle your input!")
+  input("\n>")
+  screen_clear()
   start_menu()
 
 

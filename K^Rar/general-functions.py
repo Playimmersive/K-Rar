@@ -6,30 +6,51 @@ def slow_print(t):
         time.sleep(random.random()*0.8/typing_speed)
 
 
+import os
+from time import sleep
+# The screen clear function
+def screen_clear():
+   # for mac and linux(here, os.name is 'posix')
+   if os.name == 'posix':
+      _ = os.system('clear')
+   else:
+      # for windows platfrom
+      _ = os.system('cls')
+
+
+
 
 
 def this_location():
     if player1.location == felzur_city_player_home:
-      print("\n" *50)
+      input("\n>")
+      screen_clear()
       felzur_city_player_home()
     elif player1.location == felzur_city_alley:
-      print("\n" *50)
+      input("\n>")
+      screen_clear()
       felzur_city_alley()
     elif player1.location == felzur_city_bar:
-      print("\n" *50)
+      input("\n>")
+      screen_clear()
       felzur_city_bar()
 
     elif player1.location == felzur_city_plaza_shack_01:
-      print("\n" *50)
+      input("\n>")
+      screen_clear()
       felzur_city_plaza_shack_01()
     elif player1.location == felzur_city_plaza_stonebuilding_01:
-      print("\n" *50)
+      input("\n>")
+      screen_clear()
       felzur_city_plaza_stonebuilding_01()
     elif player1.location == felzur_city_plaza_coluseum:
-      print("\n" *50)
+      input("\n>")
+      screen_clear()
       felzur_city_plaza_coluseum()
     elif player1.location == felzur_city_market:
-      print("\n" *50)
+      input("\n>")
+      screen_clear()
       felzur_city_market()
-    else: print("\n" *50)
+    else: input("\n>")
+    screen_clear()
     felzur_city_plaza()

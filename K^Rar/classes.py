@@ -90,6 +90,24 @@ class human:
     else: print("Can't handle your input!")
     player1.rest_unsafe() 
 
+  def rest_public(player):
+    slow_print("\n\n" + player1.name + " takes place.\n")
+    player_input = (input("\nType 'meal' to take a meal.\nType 'drink' to drink something.\nType 'carry on' to go further.\nType 'medics' to take some medics.\nType 'status' for your status.\nType 'quit' to go back to the start menu.\n\n>"))
+    if "meal" in player_input:
+      player1.use_meals_public()
+    elif "drink" in player_input:
+      player1.use_water_public()
+    elif "carry on" in player_input:
+      this_location()
+    elif "medics" in player_input:
+      player1.use_medics_public()
+    elif "status" in player_input:
+      player1.status_public()
+    elif "quit" in player_input:
+      start_menu()
+
+    else: print("Can't handle your input!")
+    player1.rest_public() 
 
 
 ###                         sleep
@@ -151,6 +169,17 @@ class human:
     else: print(player1.name + " dont have anything to heal.")
     player1.rest_unsafe()
 
+  def use_medics_public(player):
+    if player.health == player.max_health:
+      slow_print(player1.name + " dont need medics")
+      player1.rest_public()
+    elif player.medics > 0:
+      slow_print(player.name + " takes some healing herbs.")
+      player.health = min(player.max_health, player.health + 100)
+      player.medics = player.medics -1
+      player1.rest_public()
+    else: print(player1.name + " dont have anything to heal.")
+    player1.rest_public()
     
 ###                     Use Meals                                                   ###
 
@@ -178,6 +207,18 @@ class human:
     else: print(player1.name + " dont have anything to eat.")
     player1.rest_unsafe()
 
+  def use_meals_public(player):
+    if player.hunger > 70:
+      slow_print(player1.name + " is not hungry")
+      player1.rest_public()
+    elif player.hunger <= 70 and player.meals > 0:
+      slow_print(player.name + " takes a meal.")
+      player.hunger = player.hunger + 30
+      player.meals = player.meals -1
+      player1.rest_public()
+    else: print(player1.name + " dont have anything to eat.")
+    
+    player1.rest_public()
 ###                         Use Water                               ###
   def use_water(player):
     if player.thirst > 80:
@@ -204,12 +245,24 @@ class human:
     else: print(player1.name + " dont have anything to drink.")
     player1.rest_unsafe()
 
+  def use_water_public(player):
+    if player.thirst > 80:
+      slow_print(player1.name + " is not hungry")
+      player1.rest_public()
+    elif player.thirst <= 80 and player.water > 0:
+      slow_print(player.name + " takes a drink.")
+      player.thirst = player.thirst + 20
+      player.water = player.water -1
+      player1.rest_public()
+    else: print(player1.name + " dont have anything to drink.")
+    player1.rest_public()
 
 ###                                      Status                                      ###
 
 
   def status(player):
     slow_print("\n" + player.name + "'s Health is at " + str(player.health) + "/" + str(player.max_health) + " points.\nThere are " + str(player1.medics) + " herbs in a pouch, " + str(player1.meals) + " meals, " + str(player1.water) + " bottles of water, " + str(player.gold) + " gold pieces and "+ str(player.fur) + " furs in his bag.\n")
+    slow_print(player.name + "'s hunger is at " + str(player.hunger) + " points.\n")
     slow_print(player.name + "'s thirst is at " + str(player.thirst) + " points.\n")
     slow_print(player.name + "'s strenght is at " + str(player.strenght) + " points.\n")
     slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
@@ -228,6 +281,13 @@ class human:
     slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
     player1.rest_unsafe()
 
+  def status_public(player):
+    slow_print("\n" + player.name + "'s Health is at " + str(player.health) + "/" + str(player.max_health) + " points.\nThere are " + str(player1.medics) + " herbs in a pouch, " + str(player1.meals) + " meals, " + str(player1.water) + " bottles of water, " + str(player.gold) + " gold pieces and "+ str(player.fur) + " furs in his bag.\n")
+    slow_print(player.name + "'s hunger is at " + str(player.hunger) + " points.\n")
+    slow_print(player.name + "'s thirst is at " + str(player.thirst) + " points.\n")
+    slow_print(player.name + "'s strenght is at " + str(player.strenght) + " points.\n")
+    slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
+    player1.rest_public()
 
 
 

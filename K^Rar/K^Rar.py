@@ -27,13 +27,16 @@ exec(open("classes.py").read())
 exec(open("weapons.py").read())
 
 
-#                                   Import shars
+#                                   Import chars
 exec(open("chars.py").read())
 
 
 #                                   Import combat-system
 exec(open("combat-system.py").read())
 
+#                                   import dialogs
+
+exec(open("dialogs_felzur.py").read())
 
 #                                   Import level-felzur
 exec(open("level-felzur.py").read())
