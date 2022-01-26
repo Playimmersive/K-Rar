@@ -13,6 +13,8 @@ def chose_combat_long():
     combat(attacker, defender)
   if player1.weapon == sword:
     combat(attacker, defender)
+  if player1.weapon == guard_sword:
+    combat(attacker, defender)
 
 
 
@@ -31,7 +33,8 @@ def chose_combat_short():
     combat_short_weapon_d(attacker, defender)
   if player1.weapon == sword:
     combat_short_weapon_d(attacker, defender)
-
+  if player1.weapon == guard_sword:
+    combat_short_weapon_d(attacker, defender)
 
 ###                      chose_combat_animal
 def chose_combat_animal():
@@ -47,6 +50,8 @@ def chose_combat_animal():
   if player1.weapon == log:
     combat_animal(attacker, defender)
   if player1.weapon == sword:
+    combat_animal(attacker, defender)
+  if player1.weapon == guard_sword:
     combat_animal(attacker, defender)
 
 

@@ -30,11 +30,22 @@ def this_location():
       input("\n>")
       screen_clear()
       felzur_city_alley()
+    elif player1.location == felzur_city_gate:
+      input("\n>")
+      screen_clear()
+      felzur_city_gate()
+    elif player1.location == felzur_city_gate_entrance:
+      input("\n>")
+      screen_clear()
+      felzur_city_gate_entrance()
+    elif player1.location == world_map_felzur_city:
+      input("\n>")
+      screen_clear()
+      world_map_felzur_city() 
     elif player1.location == felzur_city_bar:
       input("\n>")
       screen_clear()
       felzur_city_bar()
-
     elif player1.location == felzur_city_plaza_shack_01:
       input("\n>")
       screen_clear()

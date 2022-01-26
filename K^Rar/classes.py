@@ -43,28 +43,28 @@ class human:
     slow_print("\n\n" + player1.name + " enjoys the warm fire and rests for a while.\n")
     player_input = (input("\nType 'sleep' to sleep a while.\nType 'meal' to take a meal.\nType 'drink' to drink something.\nType 'status' for your status.\nType 'carry on' to stop rest.\nType 'medics' to take some medics.\nType 'quit' to go back to the start menu.\n\n>"))
     if "sleep" in player_input:
-      print("\n" *50)
+      screen_clear()
       player1.sleep()
     elif "meal" in player_input:
-      print("\n" *50)
+      screen_clear()
       player1.use_meals()
     elif "drink" in player_input:
-      print("\n" *50)
+      screen_clear()
       player1.use_water()
     elif "status" in player_input:
-      print("\n" *50)
+      screen_clear()
       player1.status()
     elif "carry on" in player_input:
-      print("\n" *50)
+      screen_clear()
       this_location()
     elif "medics" in player_input:
-      print("\n" *50)
+      screen_clear()
       player1.use_medics()
     elif "quit" in player_input:
-      print("\n" *50)
+      screen_clear()
       start_menu()
 
-    else: print("\n" *50)
+    else: screen_clear()
     print("Can't handle your input!")
     player1.rest() 
 
@@ -265,6 +265,7 @@ class human:
     slow_print(player.name + "'s hunger is at " + str(player.hunger) + " points.\n")
     slow_print(player.name + "'s thirst is at " + str(player.thirst) + " points.\n")
     slow_print(player.name + "'s strenght is at " + str(player.strenght) + " points.\n")
+    slow_print(player.name + "'s agility is at " + str(player.agility) + " points.\n")
     slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
     player1.rest()
 
@@ -278,6 +279,7 @@ class human:
     slow_print(player.name + "'s hunger is at " + str(player.hunger) + " points.\n")
     slow_print(player.name + "'s thirst is at " + str(player.thirst) + " points.\n")
     slow_print(player.name + "'s strenght is at " + str(player.strenght) + " points.\n")
+    slow_print(player.name + "'s agility is at " + str(player.agility) + " points.\n")
     slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
     player1.rest_unsafe()
 
@@ -286,6 +288,7 @@ class human:
     slow_print(player.name + "'s hunger is at " + str(player.hunger) + " points.\n")
     slow_print(player.name + "'s thirst is at " + str(player.thirst) + " points.\n")
     slow_print(player.name + "'s strenght is at " + str(player.strenght) + " points.\n")
+    slow_print(player.name + "'s agility is at " + str(player.agility) + " points.\n")
     slow_print(player.name + " has a " + str.lower(player.weapon[1]) + " in his hand." + "\n\n")
     player1.rest_public()
 

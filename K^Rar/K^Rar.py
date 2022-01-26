@@ -10,40 +10,54 @@ def credits():
   print(input("\n>"))
   exit()
 
-#                                   Import start-menu
+#         Import start-menu
 exec(open("start-menu.py").read())
 
 
-#                                   Import intro
+#         Import intro
 exec(open("intro.py").read()) 
 
 
 
-#                                   Import classes
+#         Import classes
 exec(open("classes.py").read())
 
 
-#                                   Import weapons   
+#         Import weapons   
 exec(open("weapons.py").read())
 
 
-#                                   Import chars
+#         Import Items
+exec(open("items.py").read())
+
+
+#         Import chars
 exec(open("chars.py").read())
 
 
-#                                   Import combat-system
+#         Import combat-system
 exec(open("combat-system.py").read())
 
-#                                   import dialogs
 
+#         Import dialogs
 exec(open("dialogs_felzur.py").read())
 
-#                                   Import level-felzur
+
+#         Import world_maps
+exec(open("world_maps.py").read())
+
+
+#         Import level-felzur
+
 exec(open("level-felzur.py").read())
 
 
+#         Import level-felzur-pass
 
-#                                    ---<Spielaufruf>---                            <#
+exec(open("level-felzur-passage.py").read())
+
+
+#-------------<Spielaufruf>-----------------#
 start_menu()
 
 
