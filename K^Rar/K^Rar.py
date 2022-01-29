@@ -23,6 +23,8 @@ exec(open("intro.py").read())
 exec(open("classes.py").read())
 
 
+
+
 #         Import weapons   
 exec(open("weapons.py").read())
 
@@ -34,6 +36,8 @@ exec(open("items.py").read())
 #         Import chars
 exec(open("chars.py").read())
 
+#         Import player_diary
+exec(open("player_diary.py").read())
 
 #         Import combat-system
 exec(open("combat-system.py").read())

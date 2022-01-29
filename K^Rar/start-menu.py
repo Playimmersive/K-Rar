@@ -1,3 +1,5 @@
+
+
 #                           start_menu()
 
 
@@ -13,9 +15,7 @@ def start_menu():
   player1.meals = 1
   player1.water = 1
   player1.alive = True
- 
   
-
   player_input = (input("\nType 'yes' to enter.\nType 'no' to leave.\n\n>"))
   
   if "yes" in player_input:
@@ -33,8 +33,7 @@ def start_menu():
       slow_print("\nWhat's your name?\n")
       player1.name = input(">")
     
-      slow_print("\nHow old are you?\n")
-      player1.age = input(">")
+      set_age()
       screen_clear()
       choose_class()
       
@@ -45,8 +44,7 @@ def start_menu():
     slow_print("\nWhat's your name?\n")
     player1.name = input(">")
     
-    slow_print("\nHow old are you?\n")
-    player1.age = input(">")
+    set_age()
     screen_clear()
     choose_class()
     

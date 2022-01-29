@@ -8,7 +8,7 @@ def slow_print(t):
 
 import os
 from time import sleep
-# The screen clear function
+#           screen_clear()
 def screen_clear():
    # for mac and linux(here, os.name is 'posix')
    if os.name == 'posix':
@@ -65,3 +65,12 @@ def this_location():
     else: input("\n>")
     screen_clear()
     felzur_city_plaza()
+
+def set_age():
+  while True:
+    try:
+      num = int(input("How old are you?\n>"))
+      break
+    except ValueError:
+        print("\n\nPlease input integer only...")  
+        continue

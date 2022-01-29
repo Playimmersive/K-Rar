@@ -1,1 +1,1 @@
-print("passage")
+pass

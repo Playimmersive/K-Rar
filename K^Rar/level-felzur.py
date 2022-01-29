@@ -21,7 +21,7 @@ Orte: felzur_city
 def felzur_city_gate():
   player1.location = felzur_city_gate
   screen_clear()
-  slow_print("\nThere is the city gate in front of "+ player1.name + ".\n")
+  slow_print("\nThere is the city gate in front of "+ player1.name + ".\nAbove the gate is a little watch tower with some guards on it.\n")
   player_input = (input("\n\nType 'leave' to pass through the gate and leave the city.\nType 'alley' to go back to the city alley.\n\n>"))
   if "leave" in player_input:
     world_map_felzur_city()

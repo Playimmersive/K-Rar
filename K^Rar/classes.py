@@ -41,7 +41,7 @@ class human:
 ###                                Rest                                ###
   def rest(player):
     slow_print("\n\n" + player1.name + " enjoys the warm fire and rests for a while.\n")
-    player_input = (input("\nType 'sleep' to sleep a while.\nType 'meal' to take a meal.\nType 'drink' to drink something.\nType 'status' for your status.\nType 'carry on' to stop rest.\nType 'medics' to take some medics.\nType 'quit' to go back to the start menu.\n\n>"))
+    player_input = (input("\nType 'sleep' to sleep a while.\nType 'meal' to take a meal.\nType 'drink' to drink something.\nType 'status' for your status.\nType 'carry on' to stop rest.\nType 'medics' to take some medics.\n\nType 'diary' to open your diary.Type 'quit' to go back to the start menu.\n\n>"))
     if "sleep" in player_input:
       screen_clear()
       player1.sleep()
@@ -63,6 +63,10 @@ class human:
     elif "quit" in player_input:
       screen_clear()
       start_menu()
+    elif "diary" in player_input:
+      screen_clear()
+      use_diary()
+
 
     else: screen_clear()
     print("Can't handle your input!")
