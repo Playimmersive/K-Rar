@@ -23,7 +23,7 @@ exec(open("intro.py").read())
 
 
 # Import classes
-exec(open("classes.py").read())
+exec(open("classes/Human.py").read())
 
 
 # Import weapons
