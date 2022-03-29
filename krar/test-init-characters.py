@@ -1,0 +1,18 @@
+### Player, NPC,s and Enemys ###
+
+
+# Charackter = human( location, race, nativity, citizen name, age , healt, max_healt, hunger, thirst, strenght, agility, weapon, gold, fur, medics, meals, water, alive)
+
+player1 = human("felzur_city_player_home", "Human", "Felzur", "Felzur", "Marvin", 46, 78, 100, 100, 100, 1, 3, sword, 13, 0, 1, 1, 1, True)
+
+gladiator1 = human("felzur_city_place_coluseum", "Human", "Drindur", "Felzur", "Belija", 120, 200, 200, 100, 100, 3, 3, log, 153, 1, 0, 0, 0, True)
+
+bandit1 = human("felzur_city_place_shack_01", "Human", "Felzur", "Felzur", "Gustavo", 39, 120, 120, 100, 100, 1, 2, sharped_dagger, 34, 1, 0, 0, 0, True)
+
+bandit2 = human("felzur_city_place_stonebuilding_01", "Human", "Felzur", "Felzur", "Fenrir", 39, 175, 175, 100, 100, 1, 1, sword, 78, 1, 0, 0, 0, True)
+
+soldier1 = human("felzur_city_gate", "Human", "Felzur", "Felzur", "Björn", 53, 300, 300, 100, 100, 3, 2, guard_sword, 151, 2, 1, 1, 2, True)
+
+# Animal = animal( location, race, name, health, strenght, agility, weapon, fur, alive)###
+
+stray_dog_01 = animal("felzur_city_player_home", "Dog", "stray dog", 50, 1, 2, fangs, 1, True)
