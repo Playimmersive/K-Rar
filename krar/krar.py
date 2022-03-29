@@ -3,6 +3,7 @@ import sys
 import time
 import random
 
+from classes import Human
 # Import general-functions
 
 exec(open("general-functions.py").read())
@@ -20,11 +21,6 @@ exec(open("start-menu.py").read())
 
 # Import intro
 exec(open("intro.py").read())
-
-
-# Import classes
-exec(open("classes/Human.py").read())
-
 
 # Import weapons
 exec(open("weapons.py").read())

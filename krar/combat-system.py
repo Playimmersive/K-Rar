@@ -174,7 +174,6 @@ def combat(attacker, defender):
 		else: slow_print("What a luck, " + defender.name + " missed " + attacker.name + ".\n" + defender.name + " stumbles around!\n------------------------------------\n\n")
 
 ### Combat Animal ###
-
 def combat_animal(attacker, defender):
 	
 	global loot_fur_animal
@@ -244,7 +243,6 @@ def combat_animal(attacker, defender):
 
 
 ### Combatsystem 'player as attacker' part2/2 "defender_round" ###
-
 			if random.choice(result) == 1:
 				hitpoints = defender.strenght * defender.weapon[0]
 				attacker.health = max(0, attacker.health - hitpoints)
@@ -293,8 +291,6 @@ def combat_animal(attacker, defender):
 
 				
 ### combat_animal_short
-
-
 def combat_animal_short(attacker, defender):
 	
 	global loot_fur_animal

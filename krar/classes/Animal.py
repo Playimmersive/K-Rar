@@ -1,3 +1,4 @@
+# muss von Character abgeleitet sein
 class animal:
 	def __init__(animal, location, race, name, health, strenght, agility, weapon, fur, alive):
 		animal.location = location
